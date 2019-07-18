@@ -1,0 +1,31 @@
+#shape{
+    width: 200px;
+    height: 200px;
+    background-color: brown;
+    display: none;
+    position: relative;
+    
+}
+#nav{
+    background-color: aqua;
+    width: 300px;
+    font-size: 23px;
+    font-family: cursive;
+     
+}
+#p{
+    color: black;
+}
+#headvv{
+    background-color: bisque;
+    font-family: cursive;
+    color: purple;
+    width: 500px;
+}
+#bcci{
+    color: gold;
+    font-family: cursive;
+    border-color: gold;
+    font-weight: bold;
+
+}

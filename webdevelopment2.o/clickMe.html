@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>CLICK CLICK</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: dimgray">
+  <a class="navbar-brand" href="clickMe.html" id="bcci">Click-Click</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="clickMe.html" id="bcci">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="clickMe.html" id="bcci">Link</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color: gold ; font-weight: bold; font-family: cursive" >
+          Check More
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="#">Action</a>
+          <a class="dropdown-item" href="#">Another action</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#">Something else here</a>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true" id="bcci">Disabled</a>
+      </li>
+    </ul>
+    <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" id="bcci" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+    <hr>
+    <h1 id="headvv">Check How Fast You Are:</h1>
+    <div id="nav">
+         <p id="p">Your Time :<span id="timeTaken"></span></p>
+    </div>
+    <div>
+        <p></p>
+    </div>
+    <div id="shape">
+    </div>
+     
+ <script>
+        var start = new Date().getTime();
+     //for generaing variable color
+     function getRandomColor() {
+        var letters = '0123456789ABCDEF'.split('');
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+     
+     
+     function myShape(){
+         //for drawing shapes of variable size
+         var top = Math.random()*400;
+         var left = Math.random()*400;
+         var width = Math.random()*300;
+         var height =(Math.random()*200)+100;
+         if(Math.random()<=0.25 ){
+             document.getElementById("shape").style.borderRadius="25%";
+         }else if(Math.random()>0.25 && Math.random()<=0.5){
+            document.getElementById("shape").style.borderRadius="35%";
+         
+         }else if(Math.random()>0.5 && Math.random()<=0.75){
+             document.getElementById("shape").style.borderRadius="68%";
+        
+         }else if(Math.random()>0.75 && Math.random()<=1){
+             document.getElementById("shape").style.borderRadius="96%";
+        
+         }else{
+             document.getElementById("shape").style.borderRadius="0";
+        
+         }
+         document.getElementById("shape").style.backgroundColor= getRandomColor();
+         document.getElementById("shape").style.top=top +"px";
+         document.getElementById("shape").style.left=left+"px";
+         document.getElementById("shape").style.width=width +"px";
+         document.getElementById("shape").style.height=height +"px";
+         document.getElementById("shape").style.display="block";
+          start = new Date().getTime();
+         
+     }
+     //shape appears after a random time.
+     function appearAgain(){
+         setTimeout(myShape,Math.random()*2000);
+     }
+    
+        appearAgain();
+        document.getElementById("shape").onclick=function(){   
+        document.getElementById("shape").style.display = "none";
+         var end= new Date().getTime();
+         var timeTaken= (end-start)/1000;
+        document.getElementById("timeTaken").innerHTML=timeTaken +"  Sec";
+        appearAgain()
+    }
+ </script>  
+    
+</body>
+</html>
