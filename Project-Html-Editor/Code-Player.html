@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code-Player!</title>
+    <!--    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>-->
+    <script src="jquery-ui/jquery-ui.js"></script>
+    <script src="jquery.min.js"></script>
+
+    <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="header">
+        <div id="logo">
+            <img id="logo" src="logoo.png">
+        </div>
+        <div id="name">
+            HitMan-Code
+        </div>
+        <div id="button-Vcontainer">
+            <div class="toggleButton" id="html">HTML</div>
+            <div class="toggleButton" id="css">CSS</div>
+            <div class="toggleButton" id="javascript">JavaScript</div>
+            <div class="toggleButton" id="output">Output</div>
+        </div>
+        <div>
+            <form action="https://www.facebook.com/?ref=logo">
+                <input id="button" type="submit" value="Contact Me!" />
+            </form>
+        </div>
+    </div>
+
+    <div id="bodyContainer">
+        <textarea id="htmlpanel" class="ppanel hidden" placeholder="Enter HTML Here.........."></textarea>
+        <textarea id="csspanel" class="ppanel hidden" placeholder="Enter CSS Here.........."></textarea>
+        <textarea id="javascriptpanel" class="ppanel hidden" placeholder="Enter JavaScript Here.........."></textarea>
+        <iframe id="outputpanel" class="ppanel hidden"></iframe>
+
+
+    </div>
+    <script type="text/javascript">
+        $(".toggleButton").hover(function() {
+            $(this).addClass("highlightcolor");
+
+        }, function() {
+            $(this).removeClass("highlightcolor");
+        });
+
+
+
+        $(".toggleButton").click(function() {
+            $(this).toggleClass("highlighted");
+            $(this).removeClass("highlightcolor");
+            var panelId = $(this).attr("id") + "panel";
+            $("#" + panelId).toggleClass("hidden");
+            var activePanels = 4 - $(".hidden").length;
+            $(".ppanel").width(($(window).width() / activePanels) - 10);
+        });
+
+
+
+        $(".ppanel").height(($(window).height() - $("#header").height()) - 15);
+        $(".ppanel").width(($(window).width() / 2) - 10);
+
+        function updateChanges() {
+            $("iframe").contents().find("html").html("<html><head><style type='text/css'>" + $("#csspanel").val() + "</style></head><body>" +
+                $("#htmlpanel").val() + "</body></html>");
+            document.getElementById("outputpanel").contentWindow.eval($("#javascriptpanel").val());
+        };
+        updateChanges();
+        //this is a code that shows the html of textarea in output penel.
+        $("textarea").on('change keyup paste', function() {
+            updateChanges();
+        });
+
+    </script>
+
+</body>
+
+</html>

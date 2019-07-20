@@ -1,0 +1,95 @@
+        body {
+            font-family: cursive;
+            padding: 0px;
+            margin: 0px;
+            background: #EEEEEE;
+        }
+
+        #header {
+
+            background-color: #EEEEEE;
+            width: 100%;
+            height: 35px;
+            padding: 2px
+        }
+
+        #logo {
+            width: 50px;
+            float: left;
+            cursor: pointer;
+            padding-left: 5px;
+        }
+
+        #button-Vcontainer {
+            width: 300px;
+            margin: 0 auto;
+            padding-top: 1.5px;
+        }
+
+        .toggleButton {
+            float: left;
+            border: 1px solid grey;
+            padding: 4px;
+            cursor: pointer;
+            border-right: none;
+        }
+
+        #name {
+            float: left;
+            font-weight: bold;
+            font-size: 20px;
+            cursor: pointer;
+            padding: 3px 10px 0px 40px;
+        }
+
+        #html {
+            border-bottom-left-radius: 8px;
+            border-top-left-radius: 8px;
+
+        }
+
+        #output {
+            border-right: 1px solid grey;
+            border-bottom-right-radius: 8px;
+            border-top-right-radius: 8px;
+
+        }
+
+        .highlightcolor {
+            background-color: lightskyblue;
+        }
+
+        .highlighted {
+            background-color: aquamarine;
+        }
+
+        textarea {
+            resize: none;
+            border-top: none;
+            border-color: #EEEEEE;
+        }
+
+        .ppanel {
+
+            float: left;
+        }
+
+        #outputpanel {
+            border: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #button {
+            background-color: #EEEEEE;
+            border-radius: 7px;
+            color: black;
+            text-align: center;
+            font-size: 10px;
+            font-weight: bold;
+            margin: 7.8px 15px;
+            cursor: pointer;
+            float: right;
+        }
